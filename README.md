@@ -168,7 +168,7 @@ struct MoviesActions {
                 (result: Result<Movie, APIService.APIError>) in
                 switch result {
                 case let .success(response):
-                    dispatch(SetDetail(movie: self.movie, movie: response))
+                    dispatch(SetDetail(movie: self.movie, response: response))
                 case .failure(_):
                     break
                 }
@@ -178,7 +178,7 @@ struct MoviesActions {
 
     struct SetDetail: Action {
         let movie: Int
-        let movie: Movie
+        let response: Movie
     }
 
 }
